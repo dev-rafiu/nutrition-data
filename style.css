@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Karla&display=swap");
+
+:root {
+  --clr-white: #fff;
+  --clr-dark: hsl(205, 86%, 17%);
+  --clr-secondary: rgb(73, 166, 233);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: var(--clr-white);
+  font-family: "Inter", sans-serif;
+}
+
+main h2 {
+  color: var(--clr-dark);
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+form {
+  text-align: center;
+  border: 2px solid var(--clr-dark);
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.form-control {
+  border: 1px solid var(--clr-dark);
+}
+
+::placeholder {
+  font-family: inherit;
+}
+
+.btn {
+  background: var(--clr-dark);
+  transition: background-color 0.25s ease-out;
+  font-size: 1rem;
+  color: var(--clr-white);
+}
+
+.btn:hover {
+  background-color: hsl(205, 86%, 30%);
+  color: var(--clr-white);
+}

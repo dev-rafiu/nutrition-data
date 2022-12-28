@@ -5,6 +5,7 @@ const formControl = document.querySelector(".form-control");
 const table = document.querySelector(".table");
 const tableBody = document.querySelector(".table-body");
 const getDataBtn = document.querySelector(".btn");
+const alert = document.querySelector(".message");
 
 const options = {
   method: "GET",
@@ -17,10 +18,12 @@ const options = {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const { value } = formControl;
-  if (value) {
-    getDataBtn.innerText = "Loading...";
-    getData(value);
+  if (!value) {
+    showAlert("Enter a text", "alert-danger");
+    return;
   }
+  getDataBtn.innerText = "Loading...";
+  getData(value);
   formControl.value = "";
 });
 
@@ -33,6 +36,7 @@ async function getData(query) {
     const data = await response.json();
     getDataBtn.innerText = "Get Data";
     if (data.items[0] === undefined) {
+      showAlert("no data found", "alert-danger");
       return;
     } else {
       displayData(data.items[0]);
@@ -60,4 +64,12 @@ function displayData(obj) {
   }
 }
 
-function showAlert(message, type) {}
+function showAlert(message, type) {
+  alert.innerText = message;
+  alert.classList.add(type);
+
+  setTimeout(() => {
+    alert.innerText = "";
+    alert.classList.remove(type);
+  }, 2000);
+}

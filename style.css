@@ -37,6 +37,18 @@ body {
   text-align: center;
 }
 
+.message {
+  margin: 1rem 0;
+}
+
+.alert-danger {
+  color: hsl(0, 100%, 70%);
+}
+
+.alert-success {
+  color: hsl(120, 100%, 70%);
+}
+
 form {
   text-align: center;
 }
